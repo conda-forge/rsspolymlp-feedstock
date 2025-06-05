@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   script: python -m pip install . --no-deps --ignore-installed -vv
-  number: 0
+  number: 1
   entry_points:
     - rss-init-struct = rsspolymlp.rss.random_struct:run
     - rss-single-srun = rsspolymlp.rss.rss_parallel:run_single_srun
@@ -21,6 +21,7 @@ build:
     - rss-analysis = rsspolymlp.rss.rss_analysis:run
     - rss-summarize = rsspolymlp.analysis.rss_summarize:run
     - rss-outlier = rsspolymlp.analysis.outlier_cands:run
+    - rss-outlier-detect = rsspolymlp.analysis.outlier_cands:run_compare_dft
     - plot-binary = rsspolymlp.analysis.plot.binary:run
 
 requirements:
@@ -54,6 +55,7 @@ test:
     - rss-analysis --help
     - rss-summarize --help
     - rss-outlier --help
+    - rss-outlier-detect --help
     - plot-binary --help
     - pip check
 
