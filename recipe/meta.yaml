@@ -1,5 +1,5 @@
 {% set name = "rsspolymlp" %}
-{% set version = "0.0.4" %}
+{% set version = "0.0.5" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 786631278ebedcf13380f96d8d441eb5fc3987f8b8c149e9d7e4d16893f086cf
+  sha256: 0a5c354944ec97aea62db6a7b843b8b4eb880174bb87ae045c9d24570c62f6bc
 
 build:
   noarch: python
   script: python -m pip install . --no-deps --ignore-installed -vv
-  number: 1
+  number: 0
   entry_points:
     - rss-init-struct = rsspolymlp.rss.random_struct:run
     - rss-single-srun = rsspolymlp.rss.rss_parallel:run_single_srun
