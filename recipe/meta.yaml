@@ -1,5 +1,5 @@
 {% set name = "rsspolymlp" %}
-{% set version = "0.0.12" %}
+{% set version = "0.0.13" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 31497287ff4c06885f4cff7ef91a06e0b510c85a4471a0a077332592abbd5d62
+  sha256: 1dc0ed9204c8c25d2bd4405fd32bced9093eb87ce116a66dc347a0466de26952
 
 build:
   noarch: python
