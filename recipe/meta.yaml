@@ -1,5 +1,5 @@
 {% set name = "rsspolymlp" %}
-{% set version = "0.0.10" %}
+{% set version = "0.0.11" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,21 +8,21 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f72ce5809971f76fe4e13aeab9dedf0a64612ec01e23263c916bdc4d4265db9e
+  sha256: 794033c94e9e00bf97e47aa58820699c9eb6709b17bcf88a8c2658d649ebc7ae
 
 build:
   noarch: python
   script: python -m pip install . --no-deps --ignore-installed -vv
   number: 0
   entry_points:
-    - rss-init-struct = rsspolymlp.rss.random_struct:run
-    - rss-single-srun = rsspolymlp.rss.rss_parallel:run_single_srun
-    - rss-parallel = rsspolymlp.rss.rss_parallel:run
-    - rss-uniq-struct = rsspolymlp.rss.rss_uniq_struct:run
-    - rss-summarize = rsspolymlp.analysis.rss_summarize:run
-    - rss-outlier = rsspolymlp.analysis.outlier_cands:run
-    - rss-phase-analysis = rsspolymlp.analysis.phase_analysis:run
-    - plot-binary = rsspolymlp.analysis.plot.binary:run
+    - rss-init-struct = rsspolymlp.api.cli_rss:run_rss_init_struct
+    - rss-parallel = rsspolymlp.api.cli_rss:run_rss_parallel
+    - rss-single-srun = rsspolymlp.api.cli_rss:run_rss_single_srun
+    - rss-uniq-struct = rsspolymlp.api.cli_rss:run_rss_uniq_struct
+    - rss-summarize = rsspolymlp.api.cli_rss:run_rss_summarize
+    - rss-ghost-minima = rsspolymlp.api.cli_rss:run_rss_ghost_minima
+    - rss-phase-analysis = rsspolymlp.api.cli_rss:run_rss_phase_analysis
+    - plot-binary = rsspolymlp.api.cli_plot:run_plot_binary
 
 requirements:
   host:
@@ -33,10 +33,11 @@ requirements:
     - python >={{ python_min }}
     - numpy
     - scipy
-    - pypolymlp
-    - symfc
-    - spglib
+    - scikit-learn
     - joblib
+    - pypolymlp
+    - spglib
+    - symfc
 
 test:
   imports:
@@ -54,7 +55,7 @@ test:
     - rss-parallel --help
     - rss-uniq-struct --help
     - rss-summarize --help
-    - rss-outlier --help
+    - rss-ghost-minima --help
     - rss-phase-analysis --help
     - plot-binary --help
     - pip check
