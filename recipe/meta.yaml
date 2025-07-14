@@ -1,5 +1,5 @@
 {% set name = "rsspolymlp" %}
-{% set version = "0.1.8" %}
+{% set version = "0.2.0" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,21 +8,16 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ad3aeb9e053ae00a426c2f215f8882d4738e52e64f42dfd1581ce6b858d0abcc
+  sha256: 6cb5504fa2cc6052dcabfb0bf59a5483c8354b0509add1d505403d32d8b9760e
 
 build:
   noarch: python
   script: python -m pip install . --no-deps --ignore-installed -vv
   number: 0
   entry_points:
-    - rss-init-struct = rsspolymlp.api.cli_rss:run_rss_init_struct
-    - rss-parallel = rsspolymlp.api.cli_rss:run_rss_parallel
-    - rss-single-srun = rsspolymlp.api.cli_rss:run_rss_single_srun
-    - rss-uniq-struct = rsspolymlp.api.cli_rss:run_rss_uniq_struct
-    - rss-summarize = rsspolymlp.api.cli_rss:run_rss_summarize
-    - rss-ghost-minima = rsspolymlp.api.cli_rss:run_rss_ghost_minima
-    - rss-phase-analysis = rsspolymlp.api.cli_rss:run_rss_phase_analysis
-    - plot-binary = rsspolymlp.api.cli_plot:run_plot_binary
+    - rsspolymlp = rsspolymlp.api.cli_rsspolymlp:run
+    - rsspolymlp-devkit = rsspolymlp.api.cli_rsspolymlp_devkit:run
+    - rsspolymlp-plot = rsspolymlp.api.cli_rsspolymlp_plot:run
 
 requirements:
   host:
@@ -50,14 +45,9 @@ test:
     - seaborn
 
   commands:
-    - rss-init-struct --help
-    - rss-single-srun --help
-    - rss-parallel --help
-    - rss-uniq-struct --help
-    - rss-summarize --help
-    - rss-ghost-minima --help
-    - rss-phase-analysis --help
-    - plot-binary --help
+    - rsspolymlp --help
+    - rsspolymlp-devkit --help
+    - rsspolymlp-plot --help
     - pip check
 
 about:
