@@ -27,6 +27,3 @@
 /output
 # Pixi's configuration
 .pixi
-
-# misc
-command.log
