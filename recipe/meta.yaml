@@ -1,6 +1,6 @@
 {% set name = "rsspolymlp" %}
-{% set version = "0.2.8" %}
-{% set python_min = "3.9" %}
+{% set version = "0.2.9" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 36445752eec9a218977c12fa32fa572beb5cc5b0de393a018e4cf536dd7cfc6c
+  sha256: 31a6c1d942af6418f50b6eca22e31e37a37b8e15a901efedabb3ef2b03bc01b3
 
 build:
   noarch: python
@@ -30,7 +30,7 @@ requirements:
     - scipy
     - scikit-learn
     - joblib
-    - pypolymlp
+    - pypolymlp >=0.15
     - spglib
     - symfc
 
