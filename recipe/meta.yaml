@@ -1,5 +1,5 @@
 {% set name = "rsspolymlp" %}
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5e5c314f76a4ceb8af8b743c079911ee12ecdbd78d6bf42ca2c7902fd4aa6b62
+  sha256: a3523a0a0ecfd941851083e8eda385a861671c40cbaed677edd3e0b9a8d38889
 
 build:
   noarch: python
