@@ -29,6 +29,7 @@ requirements:
     - numpy
     - scipy
     - scikit-learn
+    - sympy
     - joblib
     - pypolymlp >=0.15
     - spglib
